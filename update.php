@@ -7,11 +7,13 @@
     $sql= "SELECT reservation.id, arr_date, dep_date, reservation.price, logement_id, `type` FROM `reservation` JOIN logement ON reservation.logement_id = logement.id WHERE reservation.id=$id";
     $result=mysqli_query($conn, $sql);
 
+
     $row = mysqli_fetch_assoc($result);
         $arr_date = $row['arr_date'];
         $dep_date = $row['dep_date'];
         $price = $row['price'];
         $type = $row['type'];
+        $logement_id = $row['logement_id'];
         
 
     if (isset($_POST['submit'])) {
@@ -19,9 +21,10 @@
         $dep_date = $_POST['dep_date'];
         $price = $_POST['price'];
         $type = $_POST['type'];
+        $logement_id=$_POST['logement_id'];
        
     
-        $sql = "UPDATE `reservation` SET `arr_date`='$arr_date', dep_date='$dep_date', price='$price', `type`=$type WHERE id =$id";
+        $sql = "UPDATE `reservation` SET `arr_date`='$arr_date', dep_date='$dep_date', price='$price', `type`=$type, `logement_id`=$logement_id WHERE id =$id";
         $result = mysqli_query($conn, $sql);
     
         if ($result) {
@@ -62,16 +65,27 @@
                 <label for="price" class="form-label">Total</label>
                 <input type="text" class="form-control" id="price" placeholder="" name = "price" autocomplete="off" value=<?php echo $price;?>>
             </div>
-            <div class="mb-3">
-                <label for="type" class="form-label">Logement</label>
-                <input type="text" class="form-control" id="type" placeholder="" name= "type" autocomplete="off" value=<?php echo $type;?>>
-            </div>
-            
+
+            <?php // logement for the menu selection
+                $sql = "SELECT * FROM logement";
+                $result = $conn->query($sql);
+            ?>
+
+            <select name="logement_id" required>
+                <option value="<?php echo $row["logement_id"] ?>"><?php echo $row["type"] ?></option>
+                <?php
+                // logement menu
+                while ($data = $result->fetch_assoc()) {
+                    if ($row["logement_id"] != $data["id"]) {
+                        ?> <option value=<?php echo $data["id"] ?>> <?php echo $data["type"] ?> </option>
+                <?php
+                    }
+                } ?>
+
+            </select>
             <button type="submit" class="btn btn-primary" name="submit">Modifier</button>
         </form>
-
     </div>
 
-    
   </body>
 </html>
