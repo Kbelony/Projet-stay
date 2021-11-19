@@ -21,7 +21,6 @@ include 'db_conn.php';
         <table class="table">
             <thead>
                 <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Arrivée</th>
                 <th scope="col">Départ</th>
                 <th scope="col">Prix</th>
@@ -32,8 +31,10 @@ include 'db_conn.php';
 
             <?php
 
-                $sql = "SELECT * FROM `reservation`";
+                $sql = "SELECT reservation.id, arr_date, dep_date, reservation.price, client_id, `type`, `nom` FROM `reservation` JOIN `logement` ON reservation.logement_id = logement.id JOIN `client` ON reservation.client_id = client.id";
                 $result = mysqli_query($conn, $sql);
+                
+
 
                 if ($result) {
                     while ($row= mysqli_fetch_assoc($result)) {
@@ -41,16 +42,15 @@ include 'db_conn.php';
                         $arr_date = $row['arr_date'];
                         $dep_date = $row['dep_date'];
                         $price = $row['price'];
-                        $logement_id = $row['logement_id'];
-                        $client_id = $row['client_id'];
+                        $type = $row['type'];
+                        $nom = $row['nom'];
 
                         echo '<tr>
-                                <th scope="row"> '.$id.'</th>
                                 <td> '.$arr_date.' </td>
                                 <td> '.$dep_date.'</td>
                                 <td> '.$price.' </td>
-                                <td> '.$logement_id.' </td>
-                                <td> '.$client_id.' </td>
+                                <td> '.$type.' </td>
+                                <td> '.$nom.' </td>
                                 <td>
                                     <button class="btn btn-primary"><a href="update.php?updateid='.$row['id'].'" class="text-light">Modifier</a></button>
                                     <button class="btn btn-danger"><a href="delete.php?id='.$row['id'].'" class="text-light">Annuler</a></button>

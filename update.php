@@ -4,24 +4,24 @@
     include "db_conn.php";
     $id = $_GET['updateid'];
 
-    $sql= "SELECT * FROM `reservation` WHERE id=$id";
+    $sql= "SELECT reservation.id, arr_date, dep_date, reservation.price, logement_id, `type` FROM `reservation` JOIN logement ON reservation.logement_id = logement.id WHERE reservation.id=$id";
     $result=mysqli_query($conn, $sql);
 
     $row = mysqli_fetch_assoc($result);
         $arr_date = $row['arr_date'];
         $dep_date = $row['dep_date'];
         $price = $row['price'];
-        $logement_id = $row['logement_id'];
+        $type = $row['type'];
         
 
     if (isset($_POST['submit'])) {
         $arr_date = $_POST['arr_date'];
         $dep_date = $_POST['dep_date'];
         $price = $_POST['price'];
-        $logement_id = $_POST['logement_id'];
+        $type = $_POST['type'];
        
     
-        $sql = "UPDATE `reservation` SET id=$id, `arr_date`='$arr_date', dep_date='$dep_date', price='$price', `logement_id`='$logement_id' WHERE id = $id";
+        $sql = "UPDATE `reservation` SET `arr_date`='$arr_date', dep_date='$dep_date', price='$price', `type`=$type WHERE id =$id";
         $result = mysqli_query($conn, $sql);
     
         if ($result) {
@@ -63,9 +63,10 @@
                 <input type="text" class="form-control" id="price" placeholder="" name = "price" autocomplete="off" value=<?php echo $price;?>>
             </div>
             <div class="mb-3">
-                <label for="logement_id" class="form-label">Logement</label>
-                <input type="logement_id" class="form-control" id="logement_id" placeholder="" name= "logement_id" autocomplete="off" value=<?php echo $logement_id;?>>
+                <label for="type" class="form-label">Logement</label>
+                <input type="text" class="form-control" id="type" placeholder="" name= "type" autocomplete="off" value=<?php echo $type;?>>
             </div>
+            
             <button type="submit" class="btn btn-primary" name="submit">Modifier</button>
         </form>
 
