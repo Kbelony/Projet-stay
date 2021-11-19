@@ -20,16 +20,15 @@
         $arr_date = $_POST['arr_date'];
         $dep_date = $_POST['dep_date'];
         $price = $_POST['price'];
-        $type = $_POST['type'];
         $logement_id=$_POST['logement_id'];
        
     
-        $sql = "UPDATE `reservation` SET `arr_date`='$arr_date', dep_date='$dep_date', price='$price', `type`=$type, `logement_id`=$logement_id WHERE id =$id";
+        $sql = "UPDATE `reservation` SET `arr_date`='$arr_date', dep_date='$dep_date', price='$price', `logement_id`=$logement_id WHERE id =$id";
         $result = mysqli_query($conn, $sql);
     
         if ($result) {
-            //echo "Updated successfully";
-            header('location: user.php');
+            echo "Updated successfully";
+        // header('location: user.php');
         } else {
             die(mysqli_error($conn));
         }
@@ -84,6 +83,20 @@
 
             </select>
             <button type="submit" class="btn btn-primary" name="submit">Modifier</button>
+
+            <?php
+                if (isset($_POST['submit'])) {
+                    ini_set('display_errors', 1);
+                    error_reporting(E_ALL);
+                    $from = "oceanezara@yahoo.fr";
+                    $to = "oceanezara@yahoo.fr";
+                    $subject = "Essai de PHP Mail";
+                    $message = "PHP Mail fonctionne parfaitement";
+                    $headers = "De :" . $from;
+                    mail($to, $subject, $message, $headers);
+                    echo "L'email de confirmation a bien été envoyé.";
+                }
+            ?>
         </form>
     </div>
 
