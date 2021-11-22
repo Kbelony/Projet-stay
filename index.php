@@ -1,4 +1,10 @@
 <?php
+
+include "db_conn.php"; // Using database connection file here
+$sql = "SELECT logement.id, logement.type, logement.describe, logement.price, logement.images_id, images.image_url FROM logement
+JOIN images ON logement.images_id = images.id";
+$result = $conn->query($sql);
+
 require('vendor/autoload.php');
 $faker = 'Faker\Factory'::create()
 ?><!DOCTYPE html>
@@ -12,20 +18,23 @@ $faker = 'Faker\Factory'::create()
 </head>
 <body>
 
+
+
 <h1 style="padding-left: 30px;">Tous nos <strong>logements</strong></h1>
 
 <div class="container">
 
   <div class="list">
-      <?php for ($i = 0; $i < 6; $i++): ?>
-        <div class="item js-marker" data-lat="<?= $faker->latitude(48.86325, 48.86852) ?>" data-lng="<?= $faker->longitude(2.26993, 2.40441) ?>" data-price="<?= $faker->numberBetween(0, 100) ?>">
-          <img src="https://via.placeholder.com/200x160" alt="">
-          <h4>Studio</h4>
+      <?php 
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) { ?>
+        <div class="item js-marker" data-lat="<?= $faker->latitude(48.86325, 48.86852) ?>" data-lng="<?= $faker->longitude(2.26993, 2.40441) ?>" data-price="<?= $row["price"] ?>">
+          <img src="uploads/<?=$row['image_url']?>">
+          <h4><?php echo $row["type"]; ?></h4>
           <p>
-            Ici une petite description qui explique pourquoi c'est mieux ici
-          </p>
+          <?php echo $row["describe"] ?></p>
         </div>
-      <?php endfor; ?>
+      <?php } ?>
   </div>
 
   <div class="map" id="map"></div>
@@ -33,5 +42,13 @@ $faker = 'Faker\Factory'::create()
 </div>
 <script src="vendor.js"></script>   
 <script src="app.js"></script>
+
+<?php
+    } else { ?>
+    0 results
+    <?php  }
+
+    $conn->close();
+    ?>
 </body>
 </html>
