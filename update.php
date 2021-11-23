@@ -46,6 +46,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <title>Modifier</title>
   </head>
@@ -82,7 +83,17 @@
                 } ?>
 
             </select>
-            <button type="submit" class="btn btn-primary" name="submit">Modifier</button>
+            <button type="submit" class="btn btn-primary" name="submit" id="liveToastBtn">Modifier</button>
+
+
+            <div class="toast" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-body">
+                    Un e.mail de confirmation a été envoyé
+                    </div>
+            </div>
+            
+
+            <script src=index.js></script>
 
             <?php
                 if (isset($_POST['submit'])) {
@@ -93,12 +104,22 @@
                     $subject = "Essai de PHP Mail";
                     $message = "PHP Mail fonctionne parfaitement";
                     $headers = "De :" . $from;
-                    mail($to, $subject, $message, $headers);
-                    echo "L'email de confirmation a bien été envoyé.";
+                    mail($to, $subject, $message, $headers); ?> 
+                    <script>
+                        emailSentToast.show();
+                        
+
+                    </script>
+
+                     <?php
                 }
             ?>
         </form>
     </div>
+
+    
+
+</body>
 
   </body>
 </html>
