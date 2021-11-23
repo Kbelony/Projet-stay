@@ -1,8 +1,9 @@
 <?php
 
 include "db_conn.php"; // Using database connection file here
-$sql = "SELECT logement.id, logement.type, logement.describe, logement.price, logement.images_id, images.image_url FROM logement
-JOIN images ON logement.images_id = images.id";
+$sql = "SELECT rental.id, rental.title, rental.description, rental.price, rental.image_id, image.image_url, rental.type_id, type.type FROM rental
+JOIN image ON rental.image_id = image.id 
+JOIN type ON rental.type_id = type.id";
 $result = $conn->query($sql);
 
 require('vendor/autoload.php');
@@ -32,7 +33,7 @@ $faker = 'Faker\Factory'::create()
           <img src="uploads/<?=$row['image_url']?>">
           <h4><?php echo $row["type"]; ?></h4>
           <p>
-          <?php echo $row["describe"] ?></p>
+          <?php echo $row["description"] ?></p>
         </div>
       <?php } ?>
   </div>
