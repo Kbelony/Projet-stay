@@ -187,7 +187,7 @@ a:active {
    #BACKGROUND
    ========================================================================== */
 .bg-img-1 {
-  background: url("../") center center/cover no-repeat;
+  background: url("/images/slider_paris-1170x500.jpeg") center center/cover no-repeat;
 }
 
 /* ==========================================================================

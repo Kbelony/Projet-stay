@@ -25,11 +25,55 @@ include "db_conn.php"; // Using database connection file here
     <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
+     <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all">
 </head>
 
 <body>
+      <!-- Start navbar -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/index.html">
+        <img src="/img/logo (1).png" alt=""/>
+      </a>
+      <!-- Start modal login -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-bs-whatever="@mdo">
+        Connexion
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Se connecter</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="login-name" class="col-form-label">Login:</label>
+                  <input type="text" class="form-control" id="login-name" />
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Mot de passe:</label>
+                  <input type="text" class="form-control" id="login-name" />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Connexion</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ending modal login -->
+    </div>
+  </nav>
+  <!-- Ending navbar -->
     <form action="search.php" method="POST">
 	<div name="search" placeholder="Search">
     <div class="page-wrapper bg-img-1 p-t-200 p-b-120">
@@ -152,6 +196,73 @@ include "db_conn.php"; // Using database connection file here
         }
     
     ?>
+      <div class="title">
+  <h1>Qui sommes-nous ?</h1>
+    </div>
+    <div class="explanation_para">
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis ullam dolores necessitatibus tenetur sint tempore! Vero, distinctio, perferendis recusandae omnis in et deleniti, sit vel quisquam accusantium corrupti sequi consectetur!</p>
+  </div>
+    <!-- Start list card -->
+    <div class="title">
+      <h1>Nos appartements du moments</h1>
+        </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100">
+          <img src="/img/c8df4d92f70cb2e6d1e7741acf730b59.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="/img/c8df4d92f70cb2e6d1e7741acf730b59.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a short card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="/img/c8df4d92f70cb2e6d1e7741acf730b59.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="/img/c8df4d92f70cb2e6d1e7741acf730b59.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="/img/c8df4d92f70cb2e6d1e7741acf730b59.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a short card.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img src="/img/c8df4d92f70cb2e6d1e7741acf730b59.jpeg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a short card.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     </div>
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -165,6 +276,9 @@ include "db_conn.php"; // Using database connection file here
 
     <!-- Main JS-->
     <script src="js/global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
