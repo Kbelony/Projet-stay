@@ -30,6 +30,8 @@ include "db_conn.php"; // Using database connection file here
 </head>
 
 <body>
+    <form action="search.php" method="POST">
+	<div name="search" placeholder="Search">
     <div class="page-wrapper bg-img-1 p-t-200 p-b-120">
         <div class="wrapper wrapper--w900">
             <div class="card card-4">
@@ -114,8 +116,7 @@ include "db_conn.php"; // Using database connection file here
                                         </div>
                                     </div>
                                     <div class="col-2">
-                                        <button class="btn-submit" type="submit">Rechercher</button>
-
+                                        <button class="btn-submit" type="submit" name="submit-search">Rechercher</button>
                                     </div>
                                 </div>
                             
@@ -125,7 +126,33 @@ include "db_conn.php"; // Using database connection file here
             </div>
         </div>
     </div>
+    </form>
+    <div class="article-container">                                    
+    <?php
+        if (isset($_POST['submit-search'])) {
+            $search = mysqli_real_escape_string($conn, $_POST['address']);
+            $sql = "SELECT rental.id, rental.title, rental.description, rental.price, rental.image_id, image.image_url, rental.type_id, type.type FROM rental
+            JOIN image ON rental.image_id = image.id 
+            JOIN type ON rental.type_id = type.id";
+            // $sql = "SELECT rental.title, rental.type_id, FROM rental WHERE `type` LIKE '%$search%' OR adult LIKE '%$search%' OR pet LIKE '%$search%'  OR price LIKE '%$search%'";
+            $result = mysqli_query($conn, $sql);
+            $queryResult = mysqli_num_rows($result);
 
+            echo "There are ".$queryResult." results!";
+            if ($queryResult > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<a href='article.php?type=".$row['type']."&adult=".$row['type']."'><div class='article-box'>
+						<h3>".$row['type']."</h3>
+						<p>".$row['price']."</p>
+						</div></a>";
+                }
+            } else {
+                echo "There are no results matching your search!";
+            }
+        }
+    
+    ?>
+    </div>
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
