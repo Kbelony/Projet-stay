@@ -66,8 +66,10 @@
             </div>
 
             <div class="mb-3">
-                <label for="checkout" class="form-label">Prix total</label>
-                <span><?php echo $booking_price . " €";?></span>
+                <label for="checkout" class="form-label">Détail :</label>
+                <span><?php echo $diff->days . " nuits x " . $rental_price . " €" ;?></span><br>
+                <span>Prix total : <?php echo $booking_price . " €";?></span>
+
             </div>
 
 

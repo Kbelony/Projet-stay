@@ -44,7 +44,7 @@ include 'db_conn.php';
                         echo '<tr>
                                 <td> '.$arr_date.' </td>
                                 <td> '.$dep_date.'</td>
-                                <td> '.$price.' </td>
+                                <td> '.$price.' €</td> 
                                 <td> '.$nom.' </td>
                                 <td>
                                     <button class="btn btn-primary"><a href="update.php?updateid='.$row['id'].'" class="text-light">Modifier</a></button>
