@@ -57,7 +57,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
 </head>
 
 <body>
-    <form action="search.php" method="POST">
+    <form action="/listing/index.php" method="POST">
 	<div name="search" placeholder="Search">
     <div class="page-wrapper bg-img-1 p-t-200 p-b-120">
         <div class="wrapper wrapper--w900">
@@ -78,13 +78,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
                                             </div>
                                             <div class="rs-select2 js-select-simple select--no-search">
                                                 <select name="address">
-                                                <?php $sql = "SELECT rental.location_id, location.district FROM `rental` 
-                                                JOIN `location` ON rental.location_id = location.id;";
+                                                    <?php $sql = "SELECT * FROM `location`";
                                                 $result = $conn->query($sql);
 
                                                 if ($result->num_rows > 0) { 
                                                     while($row = $result->fetch_assoc()) {
-                                                    ?> <option <?php if(isset($_GET['district']) AND $_GET['district'] === $row ["district"]){echo "selected";} ?> value="<?php echo $row ["district"];?>" > <?php echo $row ["district"] . "<br>"; ?></option>
+                                                    ?> 
+                                                    <option <?php if(isset($_GET['district']) AND $_GET['district'] === $row ["district"]){echo "selected";} ?> value="<?php echo $row ["district"];?>" > <?php echo $row ["district"] . "<br>"; ?></option>
                                                     <?php }
                                                 } ?> 
                                                 </select>
@@ -105,13 +105,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
                                     <div class="col-2">
                                         <div class="input-group">
                                             <label class="label">Arrivée :</label>
-                                            <input class="input--style-1" type="text" name="check-in" placeholder="mm/dd/yyyy" id="input-start">
+                                            <input class="input--style-1" type="text" name="check-in" placeholder="dd/mm/yyyy" id="input-start">
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group">
                                             <label class="label">Départ :</label>
-                                            <input class="input--style-1" type="text" name="check-out" placeholder="mm/dd/yyyy" id="input-end">
+                                            <input class="input--style-1" type="text" name="check-out" placeholder="dd/mm/yyyy" id="input-end">
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
                                         <div class="input-group">
                                             <label class="label">Voyageurs :</label>
                                             <div class="input-group-icon" id="js-select-special">
-                                                <input class="input--style-1 input--style-1-small" type="text" name="traveller" value="1 Personnes" disabled="disabled" id="info">
+                                                <input class="input--style-1 input--style-1-small" type="text" value="1 Personnes" disabled="disabled" id="info">
                                                 <i class="zmdi zmdi-chevron-down input-icon"></i>
                                             </div>
                                             <div class="dropdown-select">
@@ -132,7 +132,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
                                                                 <span class="name">Nombre</span>
                                                                 <div class="quantity quantity1">
                                                                     <span class="minus">-</span>
-                                                                    <input class="inputQty" type="number" min="0" max="12" value="1">
+                                                                    <input class="inputQty" type="number" name="traveller" min="1" value="1">
                                                                     <span class="plus">+</span>
                                                                 </div>
                                                             </li>
@@ -154,32 +154,32 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
         </div>
     </div>
     </form>
-    <div class="article-container">                                    
-    <?php
-        if (isset($_POST['submit-search'])) {
-            $search = mysqli_real_escape_string($conn, $_POST['address']);
-            $sql = "SELECT rental.id, rental.title, rental.description, rental.price, rental.image_id, image.image_url, rental.type_id, type.type FROM rental
-            JOIN image ON rental.image_id = image.id 
-            JOIN type ON rental.type_id = type.id";
-            // $sql = "SELECT rental.title, rental.type_id, FROM rental WHERE `type` LIKE '%$search%' OR adult LIKE '%$search%' OR pet LIKE '%$search%'  OR price LIKE '%$search%'";
-            $result = mysqli_query($conn, $sql);
-            $queryResult = mysqli_num_rows($result);
+    <!-- <div class="article-container">                                    
+     <?php
+        // if (isset($_POST['submit-search'])) {
+        //     $search = mysqli_real_escape_string($conn, $_POST['address']);
+        //     $sql = "SELECT rental.id, rental.title, rental.description, rental.price, rental.image_id, image.image_url, rental.type_id, type.type FROM rental
+        //     JOIN image ON rental.image_id = image.id 
+        //     JOIN type ON rental.type_id = type.id";
+        //     // $sql = "SELECT rental.title, rental.type_id, FROM rental WHERE `type` LIKE '%$search%' OR adult LIKE '%$search%' OR pet LIKE '%$search%'  OR price LIKE '%$search%'";
+        //     $result = mysqli_query($conn, $sql);
+        //     $queryResult = mysqli_num_rows($result);
 
-            echo "There are ".$queryResult." results!";
-            if ($queryResult > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<a href='article.php?type=".$row['type']."&adult=".$row['type']."'><div class='article-box'>
-						<h3>".$row['type']."</h3>
-						<p>".$row['price']."</p>
-						</div></a>";
-                }
-            } else {
-                echo "There are no results matching your search!";
-            }
-        }
+        //     echo "There are ".$queryResult." results!";
+        //     if ($queryResult > 0) {
+        //         while ($row = mysqli_fetch_assoc($result)) {
+        //             echo "<a href='article.php?type=".$row['type']."&adult=".$row['type']."'><div class='article-box'>
+		// 				<h3>".$row['type']."</h3>
+		// 				<p>".$row['price']."</p>
+		// 				</div></a>";
+        //         }
+        //     } else {
+        //         echo "There are no results matching your search!";
+        //     }
+        // }
     
-    ?>
-    </div>
+    ?> -->
+    </div> -->
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->

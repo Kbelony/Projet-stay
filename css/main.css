@@ -1056,3 +1056,36 @@ input[type=number]::-webkit-outer-spin-button {
 #type {
   max-width: 90%;
 }
+
+/* ==========================================================================
+   #CUSTOM CSS NICO
+   ========================================================================== */
+
+img{
+  display: block;
+  width: 100%;
+}
+.title,.explanation_para{
+  margin-top: 20px;
+  text-align: center;
+  color: black;
+}
+.navbar-brand{
+  width:140px;
+  height:68px;
+}
+div.col{
+  margin: 30px 0px;
+}
+.mention_légales:hover{
+  cursor: pointer;
+}
+.card-img-top:hover{
+  cursor: pointer;
+}
+.group_class{
+  width: 99%;
+}
+.none{
+  display: none;
+}
