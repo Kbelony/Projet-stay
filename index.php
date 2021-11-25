@@ -15,7 +15,7 @@
         <?php }
         ?>
         <label>Nom</label>
-        <input type="text" name="nom" placeholder=""><br>
+        <input type="text" name="lastname" placeholder=""><br>
        
         <label>Password</label>
         <input type="password" name="password" placeholder=""><br>

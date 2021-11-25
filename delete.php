@@ -5,7 +5,7 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        $sql = "DELETE FROM `reservation` WHERE  id=$id";
+        $sql = "DELETE FROM `booking` WHERE  id=$id";
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
