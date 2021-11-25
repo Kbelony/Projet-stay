@@ -29,7 +29,7 @@ if (isset($_POST['lastname']) && isset($_POST['password'])) {
                 $_SESSION['lastname'] = $row['lastname'];
                 $_SESSION['firstname'] = $row['firstname'];
                 $_SESSION['id'] = $row['id'];
-                header("Location: home.php");
+                header("Location: search.php");
                 exit();
             }
         } else {

@@ -24,32 +24,27 @@ include 'db_conn.php';
                 <th scope="col">Arrivée</th>
                 <th scope="col">Départ</th>
                 <th scope="col">Prix</th>
-                <th scope="col">Logement</th>
                 <th scope="col">Client</th>
                 </tr>
             </thead>
 
             <?php
 
-                $sql = "SELECT reservation.id, arr_date, dep_date, reservation.price, client_id, `type`, `nom` FROM `reservation` JOIN `logement` ON reservation.logement_id = logement.id JOIN `client` ON reservation.client_id = client.id";
+                $sql = "SELECT booking.id, checkin, checkout, booking.price, client_id, `lastname` FROM `booking` JOIN `rental` ON booking.rental_id = rental.id JOIN `client` ON booking.client_id = client.id";
                 $result = mysqli_query($conn, $sql);
-                
-
 
                 if ($result) {
                     while ($row= mysqli_fetch_assoc($result)) {
                         $id = $row['id'];
-                        $arr_date = $row['arr_date'];
-                        $dep_date = $row['dep_date'];
+                        $arr_date = $row['checkin'];
+                        $dep_date = $row['checkout'];
                         $price = $row['price'];
-                        $type = $row['type'];
-                        $nom = $row['nom'];
+                        $nom = $row['lastname'];
 
                         echo '<tr>
                                 <td> '.$arr_date.' </td>
                                 <td> '.$dep_date.'</td>
                                 <td> '.$price.' </td>
-                                <td> '.$type.' </td>
                                 <td> '.$nom.' </td>
                                 <td>
                                     <button class="btn btn-primary"><a href="update.php?updateid='.$row['id'].'" class="text-light">Modifier</a></button>
