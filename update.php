@@ -4,13 +4,14 @@
     include "db_conn.php";
     $id = $_GET['updateid'];
 
-    $sql = "SELECT booking.id, checkin, checkout, booking.price, client_id, `lastname` FROM `booking` JOIN `rental` ON booking.rental_id = rental.id JOIN `client` ON booking.client_id = client.id WHERE booking.id=$id";
+    $sql = "SELECT booking.id, checkin, checkout, booking.price, client_id, `lastname`, rental.price rental_price FROM `booking` JOIN `rental` ON booking.rental_id = rental.id JOIN `client` ON booking.client_id = client.id WHERE booking.id=$id";
     $result=mysqli_query($conn, $sql);
 
 
     $row = mysqli_fetch_assoc($result);
         $checkin = $row['checkin'];
         $checkout = $row['checkout'];
+        $rental_price = $row['rental_price'];
         
 
     if (isset($_POST['submit'])) {
@@ -29,6 +30,13 @@
     }
 
 ?>
+<?php
+$date1 = new DateTime($checkin);
+$date2 = new DateTime($checkout);
+$diff = $date1->diff($date2);
+$totalPaid = $diff->days * $rental_price;
+// will output 2 days
+//echo $totalPaid;?>
 
 <!doctype html>
 <html lang="en">
@@ -48,11 +56,16 @@
         <form method = "post">
             <div class="mb-3">
                 <label for="checkin" class="form-label">Arrivée</label>
-                <input type="date" class="form-control" id="fromDate" placeholder="" name = "checkin" autocomplete="off" value=<?php echo $checkin;?>>
+                <input type="date" class="form-control" id="fromDate" placeholder="" name = "checkin" autocomplete="off" value="<?php echo $checkin;?>">
             </div>
             <div class="mb-3">
                 <label for="checkout" class="form-label">Départ</label>
-                <input type="date" class="form-control" id="toDate" placeholder="" name = "checkout" autocomplete="off" value=<?php echo $checkout;?>>
+                <input type="date" class="form-control" id="toDate" placeholder="" name = "checkout" autocomplete="off" value="<?php echo $checkout;?>">
+            </div>
+
+            <div class="mb-3">
+                <label for="checkout" class="form-label">Prix total</label>
+                <span><?php echo $totalPaid;?></span>
             </div>
 
 
@@ -113,5 +126,4 @@
 
 </body>
 
-  </body>
 </html>
