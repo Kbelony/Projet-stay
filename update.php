@@ -48,11 +48,11 @@
         <form method = "post">
             <div class="mb-3">
                 <label for="checkin" class="form-label">Arrivée</label>
-                <input type="date" class="form-control" id="checkin" placeholder="" name = "checkin" autocomplete="off" value=<?php echo $checkin;?>>
+                <input type="date" class="form-control" id="fromDate" placeholder="" name = "checkin" autocomplete="off" value=<?php echo $checkin;?>>
             </div>
             <div class="mb-3">
                 <label for="checkout" class="form-label">Départ</label>
-                <input type="date" class="form-control" id="checkout" placeholder="" name = "checkout" autocomplete="off" value=<?php echo $checkout;?>>
+                <input type="date" class="form-control" id="toDate" placeholder="" name = "checkout" autocomplete="off" value=<?php echo $checkout;?>>
             </div>
 
 
@@ -90,7 +90,26 @@
         </form>
     </div>
 
-    
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <script type="text/javascript">
+      var fromDate;
+      $("#fromDate").on("change", function (event) {
+        fromDate = $(this).val();
+        $("#toDate").prop("min", function () {
+          return fromDate;
+        });
+      });
+      var toDate;
+      $("#toDate").on("change", function (event) {
+        toDate = $(this).val();
+        $("#fromDate").prop("max", function () {
+          return fromDate;
+        });
+      });
+    </script>
 
 </body>
 
