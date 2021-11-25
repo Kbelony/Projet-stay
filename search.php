@@ -224,7 +224,7 @@ include "db_conn.php"; // Using database connection file here
           <img src="/images/c8df4d92f70cb2e6d1e7741acf730b59.jpeg" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a short card.</p>
+            <p class="card-text">This is a short card</p>
           </div>
         </div>
       </div>
