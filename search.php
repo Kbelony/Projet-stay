@@ -49,7 +49,7 @@ include "db_conn.php"; // Using database connection file here
     </div>
   </nav>
   <!-- Ending navbar -->
-  <form action="search.php" method="POST">
+  <form action="/search.php" method="POST">
     <div name="search" placeholder="Search">
       <div class="page-wrapper bg-img-1 p-t-200 p-b-120">
         <div class="wrapper wrapper--w900">
@@ -61,9 +61,7 @@ include "db_conn.php"; // Using database connection file here
                 </li>
               </ul>
               <div class="tab-content">
-
                 <div class="tab-pane active" id="tab1">
-
                   <div class="input-group">
                     <label class="label">Où ? :</label>
                     <div class="input--style-1" id="">
