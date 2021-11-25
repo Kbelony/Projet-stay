@@ -36,39 +36,15 @@ include "db_conn.php"; // Using database connection file here
   <!-- Start navbar -->
   <nav class="navbar navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="/index.html">
+      <a class="navbar-brand" href="/index.php">
         <img src="/images/logo (1).png" alt="" />
       </a>
       <!-- Start modal login -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-        Connexion
-      </button>
-      <button class="btn btn-primary" type="button">User</button>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Se connecter</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-3">
-                  <label for="login-name" class="col-form-label">Login:</label>
-                  <input type="text" class="form-control" id="login-name" />
-                </div>
-                <div class="mb-3">
-                  <label for="message-text" class="col-form-label">Mot de passe:</label>
-                  <input type="text" class="form-control" id="login-name" />
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Connexion</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-primary" >Connexion </button>
+  <button type="button" class="btn btn-primary">user</button>
+</div>
+</div>
       <!-- Ending modal login -->
     </div>
   </nav>
