@@ -15,7 +15,7 @@
   <!-- Start navbar -->
   <nav class="navbar navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="/index.html">
+      <a class="navbar-brand" href="/search.php">
         <img src="/images/logo (1).png" alt="" />
       </a>
     </div>

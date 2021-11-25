@@ -1084,5 +1084,7 @@ div.col{
 }
 .group_class{
   width: 99%;
-
+}
+.none{
+  display: none;
 }

@@ -15,7 +15,7 @@
   <!-- Start navbar -->
   <nav class="navbar navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="/index.html">
+      <a class="navbar-brand" href="/search.php">
         <img src="/images/logo (1).png" alt="" />
       </a>
     </div>
@@ -23,8 +23,23 @@
   <!-- Ending navbar -->
   </div>
 </section>
-<div class = "book">
+<div class = "form-item">
     <form action="/reservation.php" method="POST" class = "book-form">
+        <div class="none">
+        <?php //logement for the menu selection
+        include_once 'db_conn.php';
+                $sql = "SELECT * FROM client";
+                $result = $conn->query($sql);
+            ?>
+            <select name = "client_id">
+            <?php while ($row = mysqli_fetch_array($result)){
+            ?>
+            <option value="<?php echo $row['id']; ?>"><?php echo $row['lastname']; ?></option>
+            <?php
+            }
+            ?>
+        </select>
+        </div>
         <div class = "form-item">
           <label for = "checkin-date"></label>
           <input type = "date" id = "chekin-date" name="checkin-date" style="border: 3px solid #3a50fb;border-radius: 50px">
@@ -35,7 +50,15 @@
         </div>
         <button class="btn btn-primary" type="submit">Réserver</button>
       </div>
-      </div>    
+      </div> 
+      <!-- Starting confirmation-mail-->
+      <div class="toast" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-body">
+                    Un e.mail de confirmation a été envoyé
+                    </div>
+            </div>
+            <script src=/js/index.js></script>
+          <!-- Ending confirmation-mail-->  
     </form>
 </div>
         <!-- Starting footer-->
@@ -67,6 +90,26 @@
         </div>
       </div>
       </div>
+      <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <script type="text/javascript">
+      var fromDate;
+      $("#chekin-date").on("change", function (event) {
+        fromDate = $(this).val();
+        $("#chekout-date").prop("min", function () {
+          return fromDate;
+        });
+      });
+      var toDate;
+      $("#chekout-date").on("change", function (event) {
+        toDate = $(this).val();
+        $("#chekin-date").prop("max", function () {
+          return fromDate;
+        });
+      });
+    </script>
     </footer>
      <!-- Ending footer-->
     <!-- Option 1: Bootstrap Bundle with Popper -->
