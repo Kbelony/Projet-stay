@@ -4,7 +4,7 @@
     include "db_conn.php";
     $id = $_GET['updateid'];
 
-    $sql = "SELECT booking.id, checkin, checkout, booking.price, client_id, `lastname`, rental.price rental_price FROM `booking` JOIN `rental` ON booking.rental_id = rental.id JOIN `client` ON booking.client_id = client.id WHERE booking.id=$id";
+    $sql = "SELECT booking.id, checkin, checkout, booking.price booking_price, client_id, `lastname`, rental.price rental_price FROM `booking` JOIN `rental` ON booking.rental_id = rental.id JOIN `client` ON booking.client_id = client.id WHERE booking.id=$id";
     $result=mysqli_query($conn, $sql);
 
 
@@ -12,14 +12,19 @@
         $checkin = $row['checkin'];
         $checkout = $row['checkout'];
         $rental_price = $row['rental_price'];
-        
+       
+        $date1 = new DateTime($checkin);
+        $date2 = new DateTime($checkout);
+        $diff = $date1->diff($date2);
+        $booking_price = $diff->days * $rental_price;
 
     if (isset($_POST['submit'])) {
         $checkin = $_POST['checkin'];
         $checkout = $_POST['checkout'];
        
+       
     
-        $sql = "UPDATE `booking` SET `checkin`='$checkin', checkout='$checkout' WHERE id =$id";
+        $sql = "UPDATE `booking` SET `price`='$booking_price', `checkin`='$checkin', checkout='$checkout' WHERE id =$id";
         $result = mysqli_query($conn, $sql);
     
         if ($result) {
@@ -31,10 +36,7 @@
 
 ?>
 <?php
-$date1 = new DateTime($checkin);
-$date2 = new DateTime($checkout);
-$diff = $date1->diff($date2);
-$totalPaid = $diff->days * $rental_price;
+
 // will output 2 days
 //echo $totalPaid;?>
 
@@ -65,7 +67,7 @@ $totalPaid = $diff->days * $rental_price;
 
             <div class="mb-3">
                 <label for="checkout" class="form-label">Prix total</label>
-                <span><?php echo $totalPaid;?></span>
+                <span><?php echo $booking_price . " €";?></span>
             </div>
 
 
@@ -97,6 +99,7 @@ $totalPaid = $diff->days * $rental_price;
 
                     </script>
 
+
                      <?php
                 }
             ?>
@@ -123,6 +126,8 @@ $totalPaid = $diff->days * $rental_price;
         });
       });
     </script>
+
+
 
 </body>
 
