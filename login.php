@@ -14,10 +14,10 @@ if (isset($_POST['lastname']) && isset($_POST['password'])) {
     $password = validate($_POST['password']);
 
     if (empty($nom)) {
-        header("Location: index.php?error=Lastname is required");
+        header("Location: form_login?error=Lastname is required");
         exit();
     } elseif (empty($password)) {
-        header("Location: index.php?error=Password is required");
+        header("Location: form_login?error=Password is required");
         exit();
     } else {
         $sql = "SELECT * FROM client WHERE lastname='$nom' AND `password`='$password'";
@@ -33,11 +33,11 @@ if (isset($_POST['lastname']) && isset($_POST['password'])) {
                 exit();
             }
         } else {
-            header("Location: index.php?error= Lastname or Password incorrect");
+            header("Location: form_login?error= Lastname or Password incorrect");
             exit();
         }
     }
 } else {
-    header("Location: index.php");
+    header("Location: form_login.php");
     exit();
 }
