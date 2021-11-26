@@ -43,11 +43,9 @@ a:hover {
   color: black;
 }
 
-.cover {
+.bg-img {
   background: url("/uploads/login_banner.jpg") center center/cover no-repeat;
   background-size: cover;
-  background-position: bottom;
-  padding: 25px;
   background-repeat: no-repeat;
   height: 100vh;
 }
@@ -66,28 +64,26 @@ img {
   height: 68px;
 }
 
-.footer {
-  background-color: blanchedalmond;
-  bottom: 0;
-  text-align: center;
-  width: 100%;
-  padding-top: 10px;
-  position: sticky;
-  height: 55px;
-}
-
-.login-form {
-  margin: auto;
-  width: 500px;
-  border-radius: 3px;
-  transform: translateY(50%);
-}
-
 .content {
   padding: 20px;
 }
 
 .footer {
+  flex-shrink: 0;
+  padding: 20px;
+}
+
+.hello {
+  margin-top: 8.4px;
+}
+footer {
+  background-color: blanchedalmond;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+  position: absolute;
+  height: 55px;
   flex-shrink: 0;
   padding: 20px;
 }

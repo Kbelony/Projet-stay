@@ -155,9 +155,13 @@
 
     <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
 
-
-
-
-</body>
+    <footer>
+        <div>
+        
+            <p><b> © 2021 DonkeyStay</b></p>
+            
+        </div>
+    </footer>
+  </body>
 
 </html>

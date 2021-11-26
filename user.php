@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include 'db_conn.php';
 
@@ -42,15 +43,15 @@ include 'db_conn.php';
         <h3 class="mes_reservations">Mes Réservations</h3>
     </div>
 
-    <div class = "container">
+    <div class = "container col col-md-auto col-sm">
         <table class="table">
             <thead class="table-dark">
                 <tr>
-                <th scope="col">Arrivée</th>
-                <th scope="col">Départ</th>
-                <th scope="col">Prix</th>
-                <th scope="col">Client</th>
-                <th scope="col" colspan="2">Options</th>
+                <th scope="col col-md-auto col-sm">Arrivée</th>
+                <th scope="col col-md-auto col-sm">Départ</th>
+                <th scope="col col-md-auto col-sm">Prix</th>
+                <th scope="col col-md-auto col-sm">Client</th>
+                <th scope="col col-md-auto col-sm" colspan="2">Options</th>
                 
                 </tr>
             </thead>
@@ -90,6 +91,14 @@ include 'db_conn.php';
     </div>
 
     <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
+
+    <footer>
+        <div>
+        
+            <p><b> © 2021 DonkeyStay</b></p>
+            
+        </div>
+    </footer>
 
 </body>
 </html>

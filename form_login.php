@@ -62,7 +62,7 @@
   </main> 
 
   <footer>
-  <div class="footer">
+  <div>
       
     <p><b> © 2021 DonkeyStay</b></p>
         
