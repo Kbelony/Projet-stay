@@ -24,16 +24,44 @@
   </nav>
   <!-- Ending navbar -->
   <img src="/images/c8df4d92f70cb2e6d1e7741acf730b59.jpeg" class="img-fluid" alt="...">
-  <h1>Logement entier : appartement</h1><br>
-  <i class="fas fa-home fa-3x"></i>
+  <div class="container">
+  <div class="row g-1">
+    <div class="col-12">
+    <h1>Studio Paris 8</h1><br><hr><br>
+    </div>
+    </div>
+    </div>
+
+  <div class="container">
+  <div class="row g-5">
+    <div class="col-12">
+    <i class="fas fa-home fa-2x"></i>
   <h3>Logement entier</h3>
   <p>Vous aurez le logement (appartement avec services hôteliers) rien que pour vous.</p>
-  <i class="fas fa-star fa-3x"></i>
+    </div>
+    </div>
+    </div>
+    
+
+    <div class="container">
+  <div class="row g-1">
+    <div class="col-12">
+    <i class="fas fa-star fa-2x"></i>
   <h3>Nettoyage renforcé</h3>
   <p>Cet hôte s'engage à appliquer le processus de nettoyage renforcé</p><br>
-  <h3>Description</h3>
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley  in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</p>
+    </div>
+    </div>
+    </div>
+
+    <div class="container">
+  <div class="row g-1">
+    <div class="col-12">
+    <h3>Description</h3>
+    <p>Studio au 5 pièces duplex aux prestations haut de gamme</p>
+    </div>
+    </div>
+    </div>
+
   <!-- Starting footer-->
   <footer>
       <hr>

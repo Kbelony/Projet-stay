@@ -1088,3 +1088,12 @@ div.col{
 .none{
   display: none;
 }
+hr {
+  border: none;
+  border-top: 3px double #333;
+}
+@media (min-width: 992px) {
+  .img-fluid{
+    max-height: 90vh;
+  }
+}
