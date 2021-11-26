@@ -18,7 +18,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
 
     <?php
 } else {
-        header("Location: index.php");
+        header("Location: form_login.php");
         exit();
     }
 ?>

@@ -19,15 +19,24 @@ include 'db_conn.php';
     <title>User</title>
 </head>
 <body>
+        <!-- Start navbar -->
     
+    <div class="container" id="logout_button">
+        <a href="logout.php" class="">Logout</a>
+    </div>
+
+    <!-- Ending navbar -->
+
     <div class = "container">
         <table class="table">
-            <thead>
+            <thead class="table-dark">
                 <tr>
                 <th scope="col">Arrivée</th>
                 <th scope="col">Départ</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Client</th>
+                <th scope="col" colspan="2">Options</th>
+                
                 </tr>
             </thead>
 
@@ -49,10 +58,11 @@ include 'db_conn.php';
                                 <td> '.$dep_date.'</td>
                                 <td> '.$price.' €</td> 
                                 <td> '.$nom.' </td>
-                                <td>
-                                    <button class="btn btn-primary"><a href="update.php?updateid='.$row['id'].'" class="text-light">Modifier</a></button>
-                                    <button class="btn btn-danger"><a href="delete.php?id='.$row['id'].'" class="text-light">Annuler</a></button>
+                                <td width=100px>
+                                    <button class="btn btn-secondary"><a href="update.php?updateid='.$row['id'].'" class="text-dark">Modifier</a></button>
+                                    
                                  </td>
+                                 <td width=100px><button class="btn btn-outline-dark"><a href="delete.php?id='.$row['id'].'" class="text-dark">Annuler</a></button></td>
                             </tr>';
                     }
                 }
