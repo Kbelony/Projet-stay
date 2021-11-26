@@ -55,10 +55,20 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-      
-    <div class="container" id="logout_button">
-        <a href="logout.php" class="">Logout</a>
-    </div>  
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/search.php">
+            <img src="/uploads/logo.png" alt="" />
+            </a>
+        <!-- Start modal login -->
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="logout.php" class="">Logout</a> 
+            </div>
+        </div>
+      <!-- Ending modal login -->
+
+    </nav>   
 
     <div>
         <h3 class="modification">Modification</h3>

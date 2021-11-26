@@ -42,3 +42,30 @@ a:hover {
   background-color: #f1f1f1;
   color: black;
 }
+
+.bg-img {
+  background: url("/uploads/login_banner.jpg") center center/cover no-repeat;
+}
+
+.modal-content {
+  vertical-align: middle;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.navbar-brand {
+  width: 140px;
+  height: 68px;
+}
+
+.footer {
+  background-color: blanchedalmond;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+}
