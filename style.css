@@ -43,8 +43,13 @@ a:hover {
   color: black;
 }
 
-.bg-img {
+.cover {
   background: url("/uploads/login_banner.jpg") center center/cover no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  padding: 25px;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .modal-content {
@@ -63,9 +68,26 @@ img {
 
 .footer {
   background-color: blanchedalmond;
-  position: absolute;
   bottom: 0;
   text-align: center;
   width: 100%;
   padding-top: 10px;
+  position: sticky;
+  height: 55px;
+}
+
+.login-form {
+  margin: auto;
+  width: 500px;
+  border-radius: 3px;
+  transform: translateY(50%);
+}
+
+.content {
+  padding: 20px;
+}
+
+.footer {
+  flex-shrink: 0;
+  padding: 20px;
 }
