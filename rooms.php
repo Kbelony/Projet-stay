@@ -7,6 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Icons library -->
+    <script src="https://kit.fontawesome.com/e22d016fbe.js" crossorigin="anonymous"></script>
     <!-- Main CSS-->
   <link href="css/main.css" rel="stylesheet" media="all">
 </head>
@@ -21,69 +23,19 @@
     </div>
   </nav>
   <!-- Ending navbar -->
-  </div>
-</section>
-<div class = "form-item">
-    <form action="/create.php" method="POST" class = "book-form">
-        <div class="none">
-        <?php //logement for the menu selection
-        include_once 'db_conn.php';
-                $sql = "SELECT * FROM client";
-                $result = $conn->query($sql);
-            ?>
-            <select name = "client_id">
-            <?php while ($row = mysqli_fetch_array($result)){
-            ?>
-            <option value="<?php echo $row['id']; ?>"><?php echo $row['lastname']; ?></option>
-            <?php
-            }
-            ?>
-        </select>
-        </div>
-        <div class = "form-item">
-          <label for = "checkin-date"></label>
-          <input type = "date" id = "chekin-date" name="checkin-date" style="border: 3px solid #3a50fb;border-radius: 50px">
-          <div class = "form-item">
-              <div class="list">
-            <label for = "checkout-date"></label>
-            <input type = "date" id = "chekout-date" name="checkout-date" style="border: 3px solid #3a50fb;border-radius: 50px">
-        </div>
-        <button class="btn btn-primary" type="submit">Réserver</button>
-      </div>
-      </div> 
-      <!-- Starting confirmation-mail-->
-      <div class="toast" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-body">
-                    Un e.mail de confirmation a été envoyé
-                    </div>
-            </div>
-            <?php
-                if (isset($_POST['submit'])) {
-                    ini_set('display_errors', 1);
-                    error_reporting(E_ALL);
-                    $from = "oceanezara@yahoo.fr";
-                    $to = "oceanezara@yahoo.fr";
-                    $subject = "Essai de PHP Mail";
-                    $message = "PHP Mail fonctionne parfaitement";
-                    $headers = "De :" . $from;
-                    mail($to, $subject, $message, $headers); 
-                    echo "Un e.mail de confirmation a été envoyé";?> 
-                    <script>
-                        emailSentToast.show();
-                        
-
-                    </script>
-                    
-
-                     <?php
-                }
-            ?>   
-            <script src=/js/index.js></script>
-          <!-- Ending confirmation-mail-->  
-    </form>
-</div>
-        <!-- Starting footer-->
-        <footer>
+  <img src="/images/c8df4d92f70cb2e6d1e7741acf730b59.jpeg" class="img-fluid" alt="...">
+  <h1>Logement entier : appartement</h1><br>
+  <i class="fas fa-home fa-3x"></i>
+  <h3>Logement entier</h3>
+  <p>Vous aurez le logement (appartement avec services hôteliers) rien que pour vous.</p>
+  <i class="fas fa-star fa-3x"></i>
+  <h3>Nettoyage renforcé</h3>
+  <p>Cet hôte s'engage à appliquer le processus de nettoyage renforcé</p><br>
+  <h3>Description</h3>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley  in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
+  <!-- Starting footer-->
+  <footer>
       <hr>
       <center>
         <p><b> © 2021 DonkeyStay</b></p>
