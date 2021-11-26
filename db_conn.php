@@ -1,6 +1,6 @@
 <?php
 
-$sname = "localhost:3306";
+$sname = "localhost";
 $user_name = "root";
 $password = "";
 $db_name = "stay";

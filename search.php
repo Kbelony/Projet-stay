@@ -1,32 +1,35 @@
 <?php
 include "db_conn.php"; // Using database connection file here
-    ?>
-    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <!-- Title Page-->
-    <title>Au Form Wizard</title>
+  <!-- Title Page-->
+  <title>Donkeystay</title>
 
-    <!-- Icons font CSS-->
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Icons font CSS-->
+  <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+  <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+  <!-- Font special for pages-->
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Vendor CSS-->
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+  <!-- Vendor CSS-->
+  <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+  <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
-    <!-- Main CSS-->
-    <link href="css/main.css" rel="stylesheet" media="all">
+  <!-- Bootstrap CSS-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+
+  <!-- Main CSS-->
+  <link href="css/main.css" rel="stylesheet" media="all">
 </head>
 
 <body>
@@ -121,9 +124,34 @@ include "db_conn.php"; // Using database connection file here
                                 </div>
                             
                         </div>
+                        <div class="dropdown-select">
+                          <ul class="list-room">
+                            <li class="list-room__item">
+                              <!-- <span class="list-room__name">Room 1</span> -->
+                              <ul class="list-person">
+                                <li class="list-person__item">
+                                  <span class="name">Nombre</span>
+                                  <div class="quantity quantity1">
+                                    <span class="minus">-</span>
+                                    <input class="inputQty" type="number" min="0" max="12" value="1">
+                                    <span class="plus">+</span>
+                                  </div>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
+                    <div class="col-2">
+                      <button class="btn-submit" type="submit" name="submit-search">Rechercher</button>
+                    </div>
+                  </div>
+
                 </div>
+              </div>
             </div>
+          </div>
         </div>
     </div>
     </form>
@@ -165,6 +193,7 @@ include "db_conn.php"; // Using database connection file here
 
     <!-- Main JS-->
     <script src="js/global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

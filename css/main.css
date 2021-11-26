@@ -187,7 +187,7 @@ a:active {
    #BACKGROUND
    ========================================================================== */
 .bg-img-1 {
-  background: url("../images/bg-img-01.jpg") center center/cover no-repeat;
+  background: url("/images/slider_paris-1170x500.jpeg") center center/cover no-repeat;
 }
 
 /* ==========================================================================
@@ -266,6 +266,7 @@ a:active {
    ========================================================================== */
 .wrapper {
   margin: 0 auto;
+ 
 }
 
 .wrapper--w680 {
