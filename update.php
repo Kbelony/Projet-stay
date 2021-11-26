@@ -55,9 +55,10 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
+      
     <div class="container" id="logout_button">
-        <a href="javascript:history.go(-1)">Retour</a>
-    </div>
+        <a href="logout.php" class="">Logout</a>
+    </div>  
 
     <div>
         <h3 class="modification">Modification</h3>
@@ -141,6 +142,9 @@
         });
       });
     </script>
+
+    <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
+
 
 
 

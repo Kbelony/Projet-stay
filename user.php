@@ -75,6 +75,7 @@ include 'db_conn.php';
         
     </div>
 
-    <a href=javascript:history.go(-1)>Retour</a>
+    <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
+
 </body>
 </html>
