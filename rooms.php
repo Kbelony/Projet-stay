@@ -1,28 +1,37 @@
 <?php session_start();
     include "db_conn.php";
-
-    $sql = "SELECT booking.id, checkin, checkout, booking.price booking_price, client_id, `lastname`, rental.price rental_price FROM `booking` 
-    JOIN `rental` ON booking.rental_id = rental.id JOIN `client` ON booking.client_id = client.id WHERE booking.id=$id";
+    $rental_id = $_GET['id'];
+    $sql = "SELECT * FROM `rental` 
+    WHERE rental.id=$rental_id";
 
     $result=mysqli_query($conn, $sql);
 
     $row = mysqli_fetch_assoc($result);
-        $checkin = $_SESSION['checkin'];
-        $checkout = $_SESSION['checkout'];
-        $rental_price = $_SESSION['rental_price'];
-        $rental_id = $_GET['id'];
-       
+        $checkin = $_SESSION['check-in'];
+        $checkout = $_SESSION['check-out'];
+        $rental_price = $row['price'];
         $date1 = new DateTime($checkin);
         $date2 = new DateTime($checkout);
         $diff = $date1->diff($date2);
+
         $booking_price = $diff->days * $rental_price;
+
+        if (isset($_POST['update'])) {
+          $checkin = $_POST['checkin'];
+          $checkout = $_POST['checkout'];
+      
+          if ($result) {
+              header('rooms.php');
+          } ;
+          
+      }
 
     if (isset($_POST['submit'])) {
         $checkin = $_POST['checkin'];
         $checkout = $_POST['checkout'];
        
         $sql = "INSERT INTO booking(checkin, checkout, price, rental_id, client_id)
-                VALUES ('$checkin','$checkout','$rental_price','$rental_id', '1')";
+                VALUES ('$checkin','$checkout','$booking_price','$rental_id', '1')";
         $result = mysqli_query($conn, $sql);
     
         if ($result) {
@@ -53,11 +62,11 @@
         <form method = "post">
             <div class="mb-3">
                 <label for="checkin" class="form-label">Arrivée</label>
-                <input type="date" class="form-control" id="fromDate" placeholder="" name = "checkin" autocomplete="off" value="<?php echo $_SESSION['check-in'];?>">
+                <input type="date" class="form-control datepicker-from" id="fromDate" placeholder="" name="checkin" autocomplete="off" value="<?php echo $_SESSION['check-in'];?>">
             </div>
             <div class="mb-3">
                 <label for="checkout" class="form-label">Départ</label>
-                <input type="date" class="form-control" id="toDate" placeholder="" name = "checkout" autocomplete="off" value="<?php echo $_SESSION['check-out'];?>">
+                <input type="date" class="form-control datepicker-to" id="toDate" placeholder="" name="checkout" autocomplete="off" value="<?php echo $_SESSION['check-out'];?>">
             </div>
 
             <label for="quantity">Nombre de Voyageurs:</label>
@@ -65,9 +74,8 @@
 
             <div class="mb-3">
                 <label for="checkout" class="form-label">Détail :</label>
-                <span><?php echo $diff->days . " nuits x " . $rental_price . " €" ;?></span><br>
-                <span>Prix total : <?php echo $booking_price . " €";?></span>
-
+                <span id="nbNights"><?php echo $diff->days . " nuits x " . $rental_price . " €" ;?></span><br>
+                <span>Prix total : <span id="priceTotal"><?php echo $booking_price . "</span> €";?></span>
             </div>
 
 
@@ -75,9 +83,9 @@
 
 
             <div class="toast" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-body">
+                <div class="toast-body">
                     Un e.mail de confirmation a été envoyé
-                    </div>
+                </div>
             </div>
             
 
@@ -118,12 +126,23 @@
           return fromDate;
         });
       });
+
       var toDate;
       $("#toDate").on("change", function (event) {
         toDate = $(this).val();
         $("#fromDate").prop("max", function () {
           return fromDate;
         });
+      });
+
+      jQuery('.datepicker-from, .datepicker-to').on('blur', (e) => {
+        var rentalPrice = <?php echo $rental_price; ?>;
+        var t2 = new Date($("#toDate").val()).getTime();
+        var t1 = new Date($("#fromDate").val()).getTime();
+        var nbDays = parseInt((t2-t1)/(24*3600*1000));
+
+        $('#nbNights').text(nbDays + " nuits x <?php echo $rental_price; ?> €");
+        $('#priceTotal').text(nbDays * rentalPrice);
       });
     </script>
 
