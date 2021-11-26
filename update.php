@@ -55,6 +55,14 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
+    <div class="container" id="logout_button">
+        <a href="javascript:history.go(-1)">Retour</a>
+    </div>
+
+    <div>
+        <h3 class="modification">Modification</h3>
+    </div>
+
     <div class = "container">
         <form method = "post">
             <div class="mb-3">

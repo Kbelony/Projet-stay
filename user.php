@@ -19,13 +19,14 @@ include 'db_conn.php';
     <title>User</title>
 </head>
 <body>
-        <!-- Start navbar -->
     
     <div class="container" id="logout_button">
         <a href="logout.php" class="">Logout</a>
     </div>
 
-    <!-- Ending navbar -->
+    <div>
+        <h3 class="mes_reservations">Mes Réservations</h3>
+    </div>
 
     <div class = "container">
         <table class="table">
@@ -73,5 +74,7 @@ include 'db_conn.php';
         </table>
         
     </div>
+
+    <a href=javascript:history.go(-1)>Retour</a>
 </body>
 </html>
