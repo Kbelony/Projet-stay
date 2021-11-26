@@ -52,6 +52,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <title>Modifier</title>
+    <link href="style.css" rel="stylesheet">
   </head>
   <body>
     <div class = "container">
@@ -76,11 +77,15 @@
             <button type="submit" class="btn btn-primary" name="submit" id="liveToastBtn">Modifier</button>
 
 
-            <div class="toast" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-body">
-                    Un e.mail de confirmation a été envoyé
+            <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+
+                <!-- Then put toasts within -->
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-body border border-primary d-flex justify-content-center">
+                    <strong>Un E-mail de confirmation vient d'être envoyé.</strong>
                     </div>
-            </div>
+                </div>
+                </div>
             
 
             <script src=index.js></script>
