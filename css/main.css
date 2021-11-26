@@ -1061,31 +1061,43 @@ input[type=number]::-webkit-outer-spin-button {
    #CUSTOM CSS NICO
    ========================================================================== */
 
-img{
-  display: block;
-  width: 100%;
-}
-.title,.explanation_para{
-  margin-top: 20px;
-  text-align: center;
-  color: black;
-}
-.navbar-brand{
-  width:140px;
-  height:68px;
-}
-div.col{
-  margin: 30px 0px;
-}
-.mention_légales:hover{
-  cursor: pointer;
-}
-.card-img-top:hover{
-  cursor: pointer;
-}
-.group_class{
-  width: 99%;
-}
-.none{
-  display: none;
+   img{
+    display: block;
+    width: 100%;
+  }
+  .title,.explanation_para{
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+  }
+  .navbar-brand{
+    width:140px;
+    height:68px;
+  }
+  div.col{
+    margin: 30px 0px;
+  }
+  .mention_légales:hover{
+    cursor: pointer;
+  }
+  .card-img-top:hover{
+    cursor: pointer;
+  }
+  .group_class{
+    width: 99%;
+  }
+  .none{
+    display: none;
+  }
+  hr {
+    border: none;
+    border-top: 3px double #333;
+  }
+  @media (min-width: 992px) {
+    .img-fluid{
+      max-height: 90vh;
+    }
+  }
+.img-rooms {
+  max-width: 30%;
 }
