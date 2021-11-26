@@ -34,7 +34,6 @@ $faker = 'Faker\Factory'::create()
 
            
             $_SESSION['traveller'] =  $_GET['traveller'];
-            var_dump($_SESSION, $_GET);
             $district = mysqli_real_escape_string($conn, $_GET['address']);
             $checkin = mysqli_real_escape_string($conn, $_GET['check-in']);
             $checkout = mysqli_real_escape_string($conn, $_GET['check-out']);
