@@ -39,7 +39,7 @@
 }
 
 /* ==========================================================================
-   #BOX-SIZING
+    #BOX-SIZING
    ========================================================================== */
 /**
  * More sensible default box-sizing:
@@ -63,7 +63,7 @@ html {
 }
 
 /* ==========================================================================
-   #RESET
+    #RESET
    ========================================================================== */
 /**
  * A very simple reset that sits on top of Normalize.css.
@@ -113,7 +113,7 @@ button {
 }
 
 /* ==========================================================================
-   #PAGE WRAPPER
+    #PAGE WRAPPER
    ========================================================================== */
 .page-wrapper {
   min-height: 100vh;
@@ -212,7 +212,7 @@ a:active {
 }
 
 .p-t-200 {
-  padding-top: 200px;
+  padding-top: 80px;
 }
 
 @media (max-width: 767px) {
@@ -288,7 +288,7 @@ a:active {
   width: 100%;
   line-height: 60px;
   font-family: inherit;
-  background: #6c7ae0;
+  background: #ff5707;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -303,7 +303,7 @@ a:active {
 }
 
 .btn-submit:hover {
-  background: #5866cc;
+  background: #282828;
 }
 
 .m-t-0 {
@@ -531,7 +531,7 @@ button {
   cursor: pointer;
 }
 
-.input-group {
+.input-group-new {
   position: relative;
   margin-bottom: 35px;
   background: #ffffff;
@@ -1014,7 +1014,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .tab-list .active .tab-list__link {
-  color: rgba(128, 128, 128, 0.6;
+  color: white;
 }
 
 .tab-content > .tab-pane {
@@ -1050,7 +1050,18 @@ input[type=number]::-webkit-outer-spin-button {
    #CARD
    ========================================================================== */
 .card-4 {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8)!important;
+}
+.card-new .card-4 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: red !important;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25 rem;
 }
 
 #type {
@@ -1058,10 +1069,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* ==========================================================================
-   #CUSTOM CSS NICO
+    #CUSTOM CSS NICO
    ========================================================================== */
 
-   img{
+  img{
     display: block;
     width: 100%;
   }
@@ -1100,4 +1111,10 @@ input[type=number]::-webkit-outer-spin-button {
   }
 .img-rooms {
   max-width: 30%;
+}
+/* ==========================================================================
+    #CUSTOM FOOTER HOME 
+   ========================================================================== */
+.logout {
+  color: grey;
 }

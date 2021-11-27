@@ -39,8 +39,7 @@ a:hover {
 }
 
 .previous {
-  background-color: #f1f1f1;
-  color: black;
+  color: white;
 }
 
 .bg-img {
@@ -77,13 +76,21 @@ img {
   margin-top: 8.4px;
 }
 footer {
-  background-color: blanchedalmond;
+  background-color: #282828;
   bottom: 0;
-  text-align: center;
   width: 100%;
-  padding-top: 10px;
-  position: absolute;
-  height: 55px;
+  padding-top: 5px;
+  position: unset;
   flex-shrink: 0;
-  padding: 20px;
+  display: flex;
+  color: #ff5707;
 }
+
+.copyright {
+  margin-top:8px;
+}
+
+.container-foo{
+  display: inline-flex;
+}
+
