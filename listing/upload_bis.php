@@ -13,7 +13,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
 	$error = $_FILES['my_image']['error'];
 
 	if ($error === 0) {
-		if ($img_size > 125000) {
+		if ($img_size > 1250000) {
 			$em = "Sorry, your file is too large.";
 		    header("Location: index_bis.php?error=$em");
 		}else {
@@ -28,7 +28,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
 				move_uploaded_file($tmp_name, $img_upload_path);
 
 				// Insert into Database
-				$sql = "INSERT INTO images(image_url) 
+				$sql = "INSERT INTO image(image_url) 
 				        VALUES('$new_img_name')";
 				mysqli_query($conn, $sql);
 				header("Location: view.php");
