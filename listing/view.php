@@ -29,7 +29,7 @@
 <body>
      <a href="index_bis.php">&#8592;</a>
      <?php 
-          $sql = "SELECT * FROM images ORDER BY id DESC";
+          $sql = "SELECT * FROM image ORDER BY id DESC";
           $res = mysqli_query($conn,  $sql);
 
           if (mysqli_num_rows($res) > 0) {

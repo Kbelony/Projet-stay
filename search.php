@@ -8,7 +8,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
     <nav class="navbar navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="/search.php">
-        <img src="/uploads/logo.png" alt="" />
+        <img src="/uploads/logo.png" alt="logo"/>
         </a> 
 <!-- Start modal login -->
         <div class="btn-group" role="group" aria-label="Basic example">
