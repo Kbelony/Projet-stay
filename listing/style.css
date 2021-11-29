@@ -274,6 +274,12 @@ h4 {
   border-color: #ff5707;
 }
 
+.btn-primary:hover{
+  color: #fff;
+  background-color: #282828;
+  border-color: #282828;
+}
+
 .btn-secondary {
   color: #fff;
   background-color: transparent;
