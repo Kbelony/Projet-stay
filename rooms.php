@@ -1,9 +1,9 @@
-<?php 
+<?php
 include "db_conn.php"; // Using database connection file here
 session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
-?>     
+    ?>     
   <nav class="navbar navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="/search.php">
@@ -21,8 +21,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
     
     <?php
 } else {
-    header("Location: form_login.php");
-    exit();
+        header("Location: form_login.php");
+        exit();
     }
 
     $rental_id = $_GET['id'];
@@ -42,14 +42,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
         $booking_price = $diff->days * $rental_price;
 
         if (isset($_POST['update'])) {
-          $checkin = $_POST['checkin'];
-          $checkout = $_POST['checkout'];
+            $checkin = $_POST['checkin'];
+            $checkout = $_POST['checkout'];
       
-          if ($result) {
-              header('rooms.php');
-          } ;
-          
-      }
+            if ($result) {
+                header('rooms.php');
+            } ;
+        }
 
     if (isset($_POST['submit'])) {
         $checkin = $_POST['checkin'];
@@ -86,6 +85,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link href="/listing/style.css" rel="stylesheet">
 
     <title>Réservation</title>
@@ -132,12 +132,15 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
 
             <button type="submit" class="btn btn-primary" name="submit" id="liveToastBtn">Réserver</button>
 
+            <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
 
-            <div class="toast" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-body">
-                    Un e.mail de confirmation a été envoyé
+                <!-- Then put toasts within -->
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-body border border-primary d-flex justify-content-center">
+                    <strong>Un E-mail de confirmation vient d'être envoyé.</strong>
+                    </div>
                 </div>
-            </div>
+                </div>
             
 
             <script src=index.js></script>
@@ -212,7 +215,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
 
       
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
 
 
 
