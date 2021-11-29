@@ -34,7 +34,7 @@ CREATE TABLE `booking` (
   KEY `fk_client` (`client_id`),
   CONSTRAINT `fk_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`id`),
   CONSTRAINT `fk_rental` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `booking` (
 
 LOCK TABLES `booking` WRITE;
 /*!40000 ALTER TABLE `booking` DISABLE KEYS */;
-INSERT INTO `booking` VALUES (1,'2022-09-03','2022-10-09',500,1,1),(2,'2021-12-10','2021-12-05',100,1,1),(3,'2021-11-09','2021-11-14',600,4,1),(4,'2021-11-09','2021-11-13',1320,3,1);
+INSERT INTO `booking` VALUES (2,'2021-12-10','2021-12-05',100,1,1),(3,'2021-11-09','2021-11-14',600,4,1),(4,'2021-11-09','2021-11-13',1320,3,1),(7,'2021-12-13','2021-12-17',1000,6,1),(8,'2021-12-13','2021-12-17',1320,3,1),(9,'2022-01-08','2022-01-15',2750,6,1),(10,'2021-11-01','2021-11-13',3000,6,1),(11,'2021-11-01','2021-11-13',3000,6,1);
 /*!40000 ALTER TABLE `booking` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -147,7 +147,7 @@ CREATE TABLE `rental` (
   CONSTRAINT `images_id` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `location_id` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`),
   CONSTRAINT `type_id` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +156,7 @@ CREATE TABLE `rental` (
 
 LOCK TABLES `rental` WRITE;
 /*!40000 ALTER TABLE `rental` DISABLE KEYS */;
-INSERT INTO `rental` VALUES (1,'Studio Paris 8','Studio au 5 pièces duplex aux prestations haut de gamme',3,1,80,7,1,5),(2,'F3 Vue Tour eiffel','Au pied de Montmartre, dans le quartier Jules Joffrin',4,1,150,8,3,3),(3,'F4 Standing Champs-Elisées','Au pied de la butte, il en est ainsi de la rue Versigny dont les alignements haussmanniens ',6,1,330,6,4,4),(4,'Loft vue sur la seine','Au pied de la seine et proche des bateaux mouches',6,1,150,9,3,5),(5,'F4 Paris 6','Au pied de la seine et proche des bateaux mouches',6,1,300,9,4,6),(6,'F3 grand séjour','Au pied de la seine et proche des bateaux mouches',4,1,250,10,3,5);
+INSERT INTO `rental` VALUES (1,'Studio design rive gauche','Studio au 5 pièces duplex aux prestations haut de gamme',3,1,80,7,1,5),(2,'F3 Vue Tour eiffel','Au pied de Montmartre, dans le quartier Jules Joffrin',4,1,150,8,3,3),(3,'F4 Standing Champs-Elisées','Au pied de la butte, il en est ainsi de la rue Versigny dont les alignements haussmanniens ',6,1,330,6,4,4),(4,'Loft vue sur la seine','Au pied de la seine et proche des bateaux mouches',6,1,150,9,3,5),(5,'F4 spacieux et agréable','Au pied de la seine et proche des bateaux mouches',6,1,300,9,4,6),(6,'F3 grand séjour','Au pied de la seine et proche des bateaux mouches',4,1,250,10,3,5),(7,'Studio cozy vue opéra','Au pied de la seine et proche des bateaux mouches',2,1,70,7,1,1),(8,'F3 grand séjour vue église madeleine','Au pied de la seine et proche des bateaux mouches',4,1,200,8,3,2);
 /*!40000 ALTER TABLE `rental` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-29  9:40:30
+-- Dump completed on 2021-11-29 17:41:30
