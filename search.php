@@ -12,8 +12,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
         </a> 
 <!-- Start modal login -->
         <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="logout.php" class="logout">Deconnexion</a> 
+            <a href="user.php" class="booking">Mes réservations</a> 
             <p class="hello">Bonjour, <?php echo "M. ". $_SESSION['lastname']?> </p>
+            <a href="logout.php" class="logout">Deconnexion</a> 
         </div> 
     </div>   
 <!-- Ending modal login -->
@@ -42,6 +43,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
     <link href="css/main.css" rel="stylesheet" media="all">
     <link href="style.css" rel="stylesheet">
     <!-- Icons font CSS-->
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.1formatik.com/images/favicon/favicon-16x16.png">
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <!-- Font special for pages-->
@@ -65,7 +67,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
                         <div class="card-body">
                             <ul class="tab-list">
                                 <li class="tab-list__item active">
-                                    <a class="tab-list__link" data-toggle="tab">Réservez votre logement à Paris</a>
+                                    <a class="tab-list__link" data-toggle="tab">Réservez votre logement saisonnier à <span class="orange">Paris</span></a>
                                 </li>
                             </ul>
                                 <div class="tab-content">
@@ -176,6 +178,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
             <div class=copyright>
                 <p>© 2021 DonkeyStay</p>
             </div>
+            <div>    
+                <a href="#" class="previous">Mentions légales</a>
+            </div> 
         </div>
     </footer>
     <!-- Jquery JS-->

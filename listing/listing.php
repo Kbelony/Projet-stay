@@ -10,8 +10,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
         </a> 
 <!-- Start modal login -->
         <div class="btn-group" role="group" aria-label="Basic example">
-          <a href="logout.php" class="logout">Deconnexion</a> 
-          <p class="hello">Bonjour, <?php echo "M. ". $_SESSION['lastname']?> </p>
+            <a href="user.php" class="booking">Mes réservations</a> 
+            <p class="hello">Bonjour, <?php echo "M. ". $_SESSION['lastname']?> </p>
+            <a href="logout.php" class="logout">Deconnexion</a> 
         </div> 
     </div>   
 <!-- Ending modal login -->
@@ -122,6 +123,9 @@ $faker = 'Faker\Factory'::create()
           <div class=copyright>
             <p>© 2021 DonkeyStay</p>
           </div>
+          <div>    
+                <a href="#" class="previous">Mentions légales</a>
+          </div> 
         </div>
       </footer>
 

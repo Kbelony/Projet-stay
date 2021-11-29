@@ -74,6 +74,7 @@ img {
 
 .hello {
   margin-top: 8.4px;
+  font-weight: bold;
 }
 footer {
   background-color: #282828;
@@ -92,5 +93,6 @@ footer {
 
 .container-foo{
   display: inline-flex;
+  font-size: 12px;
 }
 
