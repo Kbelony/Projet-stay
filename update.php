@@ -52,7 +52,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <title>Modifier</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="/listing/style.css" rel="stylesheet">
   </head>
   <body>
 
@@ -62,9 +62,11 @@
             <img src="/uploads/logo.png" alt="" />
             </a>
         <!-- Start modal login -->
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="logout.php" class="">Logout</a> 
-            </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="user.php" class="booking">Mes réservations</a> 
+            <p class="hello">Bonjour, <?php echo "M. ". $_SESSION['lastname']?> </p>
+            <a href="logout.php" class="logout">Deconnexion</a> 
+        </div> 
         </div>
       <!-- Ending modal login -->
 
@@ -156,10 +158,16 @@
     <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
 
     <footer>
-        <div>
-        
-            <p><b> © 2021 DonkeyStay</b></p>
-            
+        <div class=container-foo>
+            <div>    
+                <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
+            </div>  
+            <div class=copyright>
+                <p>© 2021 DonkeyStay</p>
+            </div>
+            <div>    
+                <a href="#" class="previous">Mentions légales</a>
+            </div> 
         </div>
     </footer>
   </body>

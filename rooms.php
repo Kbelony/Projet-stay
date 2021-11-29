@@ -212,13 +212,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
         $('#nbNights').text(nbDays + " nuits x <?php echo $rental_price; ?> €");
         $('#priceTotal').text(nbDays * rentalPrice);
       });
-
-      
     </script>
-    
-
-
-
 </body>
 
 </html>
