@@ -1,4 +1,5 @@
-# DonkeyStay
+Mode d'emploi
+
 - créer une database nommée stay
 - importer le fichier sql daté du 29 novembre 2021
 - taper "php -S localhost:8000" en ligne de commande pour ouvrir une page en local 
