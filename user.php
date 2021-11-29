@@ -1,10 +1,7 @@
 <?php
 session_start();
-
 include 'db_conn.php';
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,9 +11,7 @@ include 'db_conn.php';
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <link href="style.css" rel="stylesheet">
-
     <title>User</title>
 </head>
 <body>
@@ -27,18 +22,12 @@ include 'db_conn.php';
             </a>
         <!-- Start modal login -->
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="logout.php" class="">Logout</a> 
+                <a href="logout.php" class="logout">Logout</a> 
             </div>
         </div>
       <!-- Ending modal login -->
-
     </nav> 
-      
-    
   <!-- Ending navbar -->
-    
-    
-
     <div>
         <h3 class="mes_reservations">Mes Réservations</h3>
     </div>
@@ -55,9 +44,7 @@ include 'db_conn.php';
                 
                 </tr>
             </thead>
-
             <?php
-
                 $sql = "SELECT booking.id, checkin, checkout, booking.price, client_id, `lastname` FROM `booking` JOIN `rental` ON booking.rental_id = rental.id JOIN `client` ON booking.client_id = client.id";
                 $result = mysqli_query($conn, $sql);
 
@@ -75,28 +62,27 @@ include 'db_conn.php';
                                 <td> '.$price.' €</td> 
                                 <td> '.$nom.' </td>
                                 <td width=100px>
-                                    <button class="btn btn-secondary"><a href="update.php?updateid='.$row['id'].'" class="text-dark">Modifier</a></button>
-                                    
+                                    <button class="btn btn-secondary"><a href="update.php?updateid='.$row['id'].'" class="text-dark">Modifier</a></button>  
                                  </td>
                                  <td width=100px><button class="btn btn-outline-dark"><a href="delete.php?id='.$row['id'].'" class="text-dark">Annuler</a></button></td>
                             </tr>';
                     }
                 }
-
             ?>
-
-           
         </table>
-        
     </div>
-
     <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
-
     <footer>
-        <div>
-        
-            <p><b> © 2021 DonkeyStay</b></p>
-            
+        <div class=container-foo>
+            <div>    
+                <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
+            </div>  
+            <div class=copyright>
+                <p>© 2021 DonkeyStay</p>
+            </div>
+            <div>    
+                <a href="#" class="previous">Mentions légales</a>
+            </div> 
         </div>
     </footer>
 

@@ -267,3 +267,31 @@ body {
 h4 {
   font-size: calc(1.07rem + .3vw) !important;
 }
+
+.toast-body{
+  color: green;
+}
+
+.form-control{
+  width: 50%;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #ff5707;
+  border-color: #ff5707 ;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #282828;
+  border-color: #282828 ;
+  text-transform: uppercase;
+}
+
+.book {
+  font-size: 18px;
+  margin-left: 30px;
+}
+

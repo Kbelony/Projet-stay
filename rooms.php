@@ -96,22 +96,20 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
       if ($row2) {
           ?>
         <div class="item js-marker"><br>
-        <h1><?php echo $row2["title"] ?></h2> <br>
+        <h1><span class="bold"><?php echo $row2["title"] ?></span</h2><<br>
           <img class="img-prod" src="/listing/uploads/<?=$row2['image_url']?>"> <br>
-          <h4><?php echo $row2["type"] . ' • ' . $rental_price . ' € / nuit'; ?></h4>
-          <p><?php echo $row2["description"] ?></p>
-          <p><?php echo $row2["district"] ?></p>
-
-
+          <h3><i class="fas fa-home fa-2x"></i>
+<?php echo $row2["type"] . ' | ' . $rental_price . ' € / nuit'; ?></h3><br>
+          <h4><?php echo $row2["description"] ?></h4>
+          <h5><?php echo "Lieu : " . $row2["district"] ?></h5>
         </div>
       <?php
       }?>
   </div>
-
-
     <div class = "container">
-        <form method = "post">
+        <form method = "post" class="book">
             <div class="mb-3">
+                <h3>Coût du séjour</h3>
                 <label for="checkin" class="form-label">Arrivée</label>
                 <input type="date" class="form-control datepicker-from" id="fromDate" placeholder="" name="checkin" autocomplete="off" value="<?php echo $_SESSION['check-in'];?>">
             </div>
@@ -119,9 +117,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
                 <label for="checkout" class="form-label">Départ</label>
                 <input type="date" class="form-control datepicker-to" id="toDate" placeholder="" name="checkout" autocomplete="off" value="<?php echo $_SESSION['check-out'];?>">
             </div>
-
+            <div></div>
             <label for="quantity">Nombre de Voyageurs:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="6" value="<?php echo $_SESSION['traveller'];?>">
+            <input type="number" id="quantity" name="quantity" min="1" max="6" value="<?php echo $_SESSION['traveller'];?>"><div></div>
 
             <div class="mb-3">
                 <label for="checkout" class="form-label">Détail :</label>
@@ -130,20 +128,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
             </div>
 
 
-            <button type="submit" class="btn btn-primary" name="submit" id="liveToastBtn">Réserver</button>
-
-
+            <button type="submit" class="btn btn-primary" name="submit1" id="liveToastBtn">Réserver</button>
             <div class="toast" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-body">
-                    Un e.mail de confirmation a été envoyé
+                    Un e-mail de confirmation a été envoyé. ✔
                 </div>
             </div>
-            
-
+      
             <script src=index.js></script>
-
             <?php
-                if (isset($_POST['submit'])) {
+                if (isset($_POST['submit1'])) {
                     ini_set('display_errors', 1);
                     error_reporting(E_ALL);
                     $from = "oceanezara@yahoo.fr";
@@ -154,11 +148,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
                     mail($to, $subject, $message, $headers); ?> 
                     <script>
                         emailSentToast.show();
-                        
-
                     </script>
-
-
                 <?php
                 }
             ?>
@@ -213,9 +203,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
       
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-
-
+    <script src="https://kit.fontawesome.com/e22d016fbe.js" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -3,11 +3,8 @@
     session_start();
     include "db_conn.php";
     $id = $_GET['updateid'];
-
     $sql = "SELECT booking.id, checkin, checkout, booking.price booking_price, client_id, `lastname`, rental.price rental_price FROM `booking` JOIN `rental` ON booking.rental_id = rental.id JOIN `client` ON booking.client_id = client.id WHERE booking.id=$id";
     $result=mysqli_query($conn, $sql);
-
-
     $row = mysqli_fetch_assoc($result);
         $checkin = $row['checkin'];
         $checkout = $row['checkout'];
@@ -21,9 +18,7 @@
     if (isset($_POST['submit'])) {
         $checkin = $_POST['checkin'];
         $checkout = $_POST['checkout'];
-       
-       
-    
+
         $sql = "UPDATE `booking` SET `price`='$booking_price', `checkin`='$checkin', checkout='$checkout' WHERE id =$id";
         $result = mysqli_query($conn, $sql);
     
@@ -53,6 +48,8 @@
 
     <title>Modifier</title>
     <link href="style.css" rel="stylesheet">
+    <link href="/listing/style.css" rel="stylesheet">
+
   </head>
   <body>
 
@@ -63,15 +60,14 @@
             </a>
         <!-- Start modal login -->
             <div class="btn-group" role="group" aria-label="Basic example">
-                <a href="logout.php" class="">Logout</a> 
+                <a href="logout.php" class="logout">Logout</a> 
             </div>
         </div>
       <!-- Ending modal login -->
-
     </nav>   
-
+    <br>
     <div>
-        <h3 class="modification">Modification</h3>
+        <h3 class="modification">Modifier votre réservation</h3>
     </div>
 
     <div class = "container">
@@ -89,13 +85,8 @@
                 <label for="checkout" class="form-label">Détail :</label>
                 <span><?php echo $diff->days . " nuits x " . $rental_price . " €" ;?></span><br>
                 <span>Prix total : <?php echo $booking_price . " €";?></span>
-
             </div>
-
-
             <button type="submit" class="btn btn-primary" name="submit" id="liveToastBtn">Modifier</button>
-
-
             <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
 
                 <!-- Then put toasts within -->
@@ -105,10 +96,7 @@
                     </div>
                 </div>
                 </div>
-            
-
             <script src=index.js></script>
-
             <?php
                 if (isset($_POST['submit'])) {
                     ini_set('display_errors', 1);
@@ -121,17 +109,12 @@
                     mail($to, $subject, $message, $headers); ?> 
                     <script>
                         emailSentToast.show();
-                        
-
                     </script>
-
-
-                     <?php
+                    <?php
                 }
             ?>
         </form>
     </div>
-
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
@@ -152,16 +135,19 @@
         });
       });
     </script>
-
     <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
-
     <footer>
-        <div>
-        
-            <p><b> © 2021 DonkeyStay</b></p>
-            
+        <div class=container-foo>
+            <div>    
+                <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
+            </div>  
+            <div class=copyright>
+                <p>© 2021 DonkeyStay</p>
+            </div>
+            <div>    
+                <a href="#" class="previous">Mentions légales</a>
+            </div> 
         </div>
     </footer>
   </body>
-
 </html>

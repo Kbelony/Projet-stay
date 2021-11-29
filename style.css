@@ -67,9 +67,14 @@ img {
   padding: 20px;
 }
 
-.footer {
+footer {
+  background-color: #282828;
+  bottom: 0;
+  width: 100%;
+  padding-top: 5px;
   flex-shrink: 0;
-  padding: 20px;
+  display: flex;
+  color: #ff5707;
 }
 
 .hello {
@@ -99,4 +104,14 @@ footer {
 .img-prod{
   width: 700px;
   border-radius: 10px;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: transparent;
+  border-color: #ff5707;
+}
+
+.logout{
+  color:#282828;
 }
