@@ -208,6 +208,19 @@ img {
 .hello {
   margin-top: 8.4px;
 }
+
+.logout {
+  color: #282828;
+}
+
+.booking {
+  color: #ff5707;
+}
+
+.orange {
+ color: #ff5707;
+}
+
 footer {
   background-color: #282828;
   bottom: 0;

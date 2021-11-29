@@ -217,7 +217,7 @@ a:active {
 
 @media (max-width: 767px) {
   .p-t-200 {
-    padding-top: 150px;
+    padding-top: 10px;
   }
 }
 
@@ -247,7 +247,7 @@ a:active {
 
 @media (max-width: 767px) {
   .p-b-120 {
-    padding-bottom: 250px;
+    padding-bottom: 20px;
   }
 }
 
@@ -602,7 +602,7 @@ button {
   display: block;
   font-weight: 700;
   white-space: nowrap;
-  margin-right: 30px;
+  margin-right: 15px;
 }
 
 .input--style-1 {
@@ -898,7 +898,7 @@ input[type=number]::-webkit-outer-spin-button {
   line-height: 60px;
   padding-left: 0;
   color: #666;
-  font-size: 16px;
+  font-size: 13px;
   text-transform: uppercase;
 }
 
@@ -964,7 +964,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-  background: #6c7ae0;
+  background: #FF5707;
 }
 
 /* ==========================================================================
@@ -1047,7 +1047,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* ==========================================================================
-   #CARD
+  #CARD
    ========================================================================== */
 .card-4 {
   background: rgba(0, 0, 0, 0.8)!important;
@@ -1116,5 +1116,13 @@ input[type=number]::-webkit-outer-spin-button {
     #CUSTOM FOOTER HOME 
    ========================================================================== */
 .logout {
-  color: grey;
+  color: #282828;
+}
+
+.booking {
+  color: #ff5707;
+}
+
+.orange {
+ color: #ff5707;
 }
