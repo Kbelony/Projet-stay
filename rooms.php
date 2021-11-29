@@ -1,5 +1,30 @@
-<?php session_start();
-    include "db_conn.php";
+<?php 
+include "db_conn.php"; // Using database connection file here
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['lastname'])) {
+?>     
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/search.php">
+          <img src="/uploads/logo.png" alt="logo"/>
+        </a> 
+<!-- Start modal login -->
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="user.php" class="booking">Mes réservations</a> 
+            <p class="hello">Bonjour, <?php echo "M. ". $_SESSION['lastname']?> </p>
+            <a href="logout.php" class="logout">Deconnexion</a> 
+        </div> 
+    </div>   
+<!-- Ending modal login -->
+  </nav> 
+    
+    <?php
+} else {
+    header("Location: form_login.php");
+    exit();
+    }
+
     $rental_id = $_GET['id'];
     $sql = "SELECT * FROM `rental` 
     WHERE rental.id=$rental_id";
@@ -40,10 +65,18 @@
             die(mysqli_error($conn));
         }
     }
-    var_dump($_SESSION, $_GET);
-?>
+    // var_dump($_SESSION, $_GET);
+    
+    $sql1 = "SELECT rental.id, rental.title, rental.description, rental.price, rental.image_id, image.image_url, rental.type_id, rental.location_id, location.district, type.type FROM rental
+        JOIN image ON rental.image_id = image.id 
+        JOIN type ON rental.type_id = type.id
+        JOIN location on rental.location_id = location.id
+        WHERE rental.id=$rental_id";
 
-
+    $result1 = $conn->query($sql1);
+    $row2 = mysqli_fetch_assoc($result1);
+    ?>
+   
 <!doctype html>
 <html lang="fr">
   <head>
@@ -53,11 +86,29 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="/listing/style.css" rel="stylesheet">
 
-    <title>Réserver</title>
+    <title>Réservation</title>
   </head>
   <body>
+  <div class=container> 
+      <?php
+      if ($row2) {
+          ?>
+        <div class="item js-marker"><br>
+        <h1><?php echo $row2["title"] ?></h2> <br>
+          <img class="img-prod" src="/listing/uploads/<?=$row2['image_url']?>"> <br>
+          <h4><?php echo $row2["type"] . ' • ' . $rental_price . ' € / nuit'; ?></h4>
+          <p><?php echo $row2["description"] ?></p>
+          <p><?php echo $row2["district"] ?></p>
+
+
+        </div>
+      <?php
+      }?>
+  </div>
+
+
     <div class = "container">
         <form method = "post">
             <div class="mb-3">
@@ -113,6 +164,20 @@
             ?>
         </form>
     </div>
+    
+    <footer>
+        <div class=container-foo>
+            <div>    
+                <a href="javascript:history.go(-1)" class="previous">&laquo; Précédent</a>
+            </div>  
+            <div class=copyright>
+                <p>© 2021 DonkeyStay</p>
+            </div>
+            <div>    
+                <a href="#" class="previous">Mentions légales</a>
+            </div> 
+        </div>
+    </footer>
 
     <script
       type="text/javascript"
@@ -144,7 +209,10 @@
         $('#nbNights').text(nbDays + " nuits x <?php echo $rental_price; ?> €");
         $('#priceTotal').text(nbDays * rentalPrice);
       });
+
+      
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
 
